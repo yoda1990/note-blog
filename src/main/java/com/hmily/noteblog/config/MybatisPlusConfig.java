@@ -1,4 +1,4 @@
-package com.hmily.myblog.config;
+package com.hmily.noteblog.config;
 
 import com.baomidou.mybatisplus.plugins.PaginationInterceptor;
 import org.mybatis.spring.annotation.MapperScan;
@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
  */
 //扫描dao或者是Mapper接口
 @Configuration
-@MapperScan("com.hmily.myblog.service.mapper.mapper*")
+@MapperScan("com.hmily.noteblog.service.mapper.mapper*")
 public class MybatisPlusConfig {
 
     /**

@@ -1,14 +1,14 @@
-package com.hmily.myblog.controller;
+package com.hmily.noteblog.controller;
 
 /**
  * Created by zyzhmily on 2018/8/21.
  */
 import java.util.List;
 
-import com.hmily.myblog.entity.Student;
-import com.hmily.myblog.entity.response.Result;
-import com.hmily.myblog.service.api.StudentService;
-import groovy.util.logging.Slf4j;
+import com.hmily.noteblog.entity.Student;
+import com.hmily.noteblog.entity.response.Result;
+import com.hmily.noteblog.service.api.StudentService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,7 +22,6 @@ import com.baomidou.mybatisplus.plugins.Page;
 
 @RestController
 @RequestMapping("/v1/login")
-@Slf4j
 public class TestController {
 
     @Autowired

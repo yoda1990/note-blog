@@ -1,4 +1,4 @@
-package com.hmily.myblog.entity.response;
+package com.hmily.noteblog.entity.response;
 
 /**
  * Created by zyzhmily on 2018/8/21.

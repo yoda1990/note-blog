@@ -1,15 +1,14 @@
-package com.hmily.myblog.service.mapper;
+package com.hmily.noteblog.service.mapper;
 
 
 import java.util.List;
 
-import com.hmily.myblog.entity.Student;
+import com.hmily.noteblog.entity.Student;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
-import com.baomidou.mybatisplus.plugins.Page;
 import com.baomidou.mybatisplus.plugins.pagination.Pagination;
 
 /**

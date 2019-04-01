@@ -1,7 +1,7 @@
-package com.hmily.myblog.controller;
+package com.hmily.noteblog.controller;
 
-import com.hmily.myblog.entity.User;
-import com.hmily.myblog.service.api.UserService;
+import com.hmily.noteblog.entity.User;
+import com.hmily.noteblog.service.api.UserService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

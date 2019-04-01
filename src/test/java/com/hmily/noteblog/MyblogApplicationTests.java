@@ -1,4 +1,4 @@
-package com.hmily.myblog;
+package com.hmily.noteblog;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

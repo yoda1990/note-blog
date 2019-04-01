@@ -1,4 +1,4 @@
-package com.hmily.myblog.config;
+package com.hmily.noteblog.config;
 
 import javax.sql.DataSource;
 

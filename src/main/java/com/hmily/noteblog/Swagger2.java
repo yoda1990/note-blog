@@ -1,4 +1,4 @@
-package com.hmily.myblog;
+package com.hmily.noteblog;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -30,7 +30,7 @@ public class Swagger2 {
                 .title("Spring Boot中使用Swagger2构建RESTful APIs")
                 .description("更多Spring Boot相关文章请关注：http://blog.didispace.com/")
                 .termsOfServiceUrl("http://blog.didispace.com/")
-                .contact("程序猿DD")
+                .contact("测试啊")
                 .version("1.0")
                 .build();
     }

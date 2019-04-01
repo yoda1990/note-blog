@@ -1,14 +1,14 @@
-package com.hmily.myblog;
+package com.hmily.noteblog;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@MapperScan("com.hmily.myblog.service.mapper")  //配置mapper扫描
+@MapperScan("com.hmily.noteblog.service.mapper")  //配置mapper扫描
 @SpringBootApplication
-public class MyblogApplication {
+public class NoteBlogApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MyblogApplication.class, args);
+		SpringApplication.run(NoteBlogApplication.class, args);
 	}
 }

@@ -1,15 +1,12 @@
-package com.hmily.myblog.service.impl;
+package com.hmily.noteblog.service.impl;
 
-import com.hmily.myblog.entity.User;
-import com.hmily.myblog.service.api.UserService;
+import com.hmily.noteblog.service.api.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Map;
-
-import static javafx.scene.input.KeyCode.T;
 
 /**
  * Created by zyzhmily on 2018/2/3.

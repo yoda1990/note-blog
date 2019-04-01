@@ -1,4 +1,4 @@
-package com.hmily.myblog.entity;
+package com.hmily.noteblog.entity;
 
 import java.util.Date;
 

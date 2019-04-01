@@ -1,4 +1,4 @@
-package com.hmily.myblog.controller;
+package com.hmily.noteblog.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;

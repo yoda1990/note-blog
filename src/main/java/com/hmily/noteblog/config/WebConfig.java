@@ -1,4 +1,4 @@
-package com.hmily.myblog.config;
+package com.hmily.noteblog.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.util.ResourceUtils;

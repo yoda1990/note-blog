@@ -1,6 +1,4 @@
-package com.hmily.myblog.service.api;
-
-import com.hmily.myblog.entity.User;
+package com.hmily.noteblog.service.api;
 
 import java.util.List;
 import java.util.Map;

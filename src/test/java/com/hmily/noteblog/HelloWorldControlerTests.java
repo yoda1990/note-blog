@@ -1,6 +1,6 @@
-package com.hmily.myblog;
+package com.hmily.noteblog;
 
-import com.hmily.myblog.controller.HelloWorldController;
+import com.hmily.noteblog.controller.HelloWorldController;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

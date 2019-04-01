@@ -1,17 +1,15 @@
-package com.hmily.myblog.service.impl;
+package com.hmily.noteblog.service.impl;
 
 
 import java.util.List;
 
-import com.hmily.myblog.entity.Student;
-import com.hmily.myblog.service.api.StudentService;
-import com.hmily.myblog.service.mapper.StudentMapper;
+import com.hmily.noteblog.entity.Student;
+import com.hmily.noteblog.service.api.StudentService;
+import com.hmily.noteblog.service.mapper.StudentMapper;
 import org.springframework.stereotype.Service;
 
 import com.baomidou.mybatisplus.plugins.Page;
-import com.baomidou.mybatisplus.plugins.pagination.Pagination;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
-import com.baomidou.mybatisplus.toolkit.PackageHelper;
 
 /**
  * Created by zyzhmily on 2018/8/21.

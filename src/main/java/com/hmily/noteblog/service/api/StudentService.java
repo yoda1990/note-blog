@@ -1,12 +1,11 @@
-package com.hmily.myblog.service.api;
+package com.hmily.noteblog.service.api;
 
 
 import java.util.List;
 
 import com.baomidou.mybatisplus.plugins.Page;
-import com.baomidou.mybatisplus.plugins.pagination.Pagination;
 import com.baomidou.mybatisplus.service.IService;
-import com.hmily.myblog.entity.Student;
+import com.hmily.noteblog.entity.Student;
 
 /**
  * Created by zyzhmily on 2018/8/21.
