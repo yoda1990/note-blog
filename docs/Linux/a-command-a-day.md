@@ -49,6 +49,22 @@
         /bin/pwd
         /bin/pwd [选项]
 ## 4、mkdir 命令
-     1、                
-                            
-        
+     1、命令格式：mkdir [选项] 目录
+     2、命令功能：指定位置创建以 DirName(指定的文件名)命名的文件夹或目录。
+     3、命令参数： -m, --mode=模式，设定权限<模式> (类似 chmod)，而不是 rwxrwxrwx 减 umask
+                  -p, --parents  可以是一个路径名称。此时若路径中的某些目录尚不存在,加上此选项后,系统将自动建立好那些尚不存在的目录,即一次可以建立多个目录;
+                  -v, --verbose  每次创建新目录都显示信息
+                  --help   显示此帮助信息并退出
+                  --version  输出版本信息并退出                
+     4、命令实例：
+        创建一个空目录
+        mkdir test1
+        递归创建多个目录
+        mkdir -p test2/test22
+        创建权限为777的目录
+        mkdir -m 777 test3
+        创建新目录都显示信息
+        mkdir -v test4
+        一个命令创建项目结构：
+        mkdir -vp scf/{lib/,bin/,doc/{info,product},logs/{info,product},service/deploy/{info,product}}                       
+## 5、rm 命令        
