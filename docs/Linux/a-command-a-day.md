@@ -67,4 +67,27 @@
         mkdir -v test4
         一个命令创建项目结构：
         mkdir -vp scf/{lib/,bin/,doc/{info,product},logs/{info,product},service/deploy/{info,product}}                       
-## 5、rm 命令        
+## 5、rm 命令
+     1、命令格式： rm [选项] 文件
+     2、命令功能：删除一个目录的一个或者多个文件，删除文件，通常仍可以将该文件恢复原状。
+     3、命令参数：
+        -f ：忽略不存在的文件，从不给提示
+        -i ：进行交互删除
+        -r ：指示rm将参数中列出的全部目录和子目录均递归的删除。
+        -v ：详细显示进行的步骤
+        --help：显示此帮助信息并退出
+        --version：输出版本信息并退出
+     4、命令实例：
+        删除文件file
+        rm 文件名
+        强行删除file
+        rm -f log1.log
+        删除任何.log文件；删除前逐一询问确认 
+        rm -i *.log
+        将test1子目录及子目录中所有档案删除
+        rm -r test1
+        rm -rf 命令会将test2子目录及子目录中所有档案删除,并且不用一一确认
+        rm -rf test2
+        删除以 -f 开头的文件
+        rm -- -f
+                
