@@ -103,4 +103,34 @@
         rmdir -p 当子目录被删除后使它也成为空目录的话，则顺便一并删除 
         rmdir -p logs
         
-## 7、mv命令                       
+## 7、mv命令
+     1、 命令格式：mv [选项] 源文件或目录 目标文件或目录
+     2、 命令功能：移动源文件或者目录
+     3、 命令参数：
+         -b：若需覆盖文件，则覆盖前先行备份
+         -f：不询问，直接覆盖
+         -i：若目标文件已经存在，询问是否覆盖
+         -u：若目标文件已经存在，且source比较新，才会更新
+         -t：--target-directory=DIRECTORY move all SOURCE arguments into DIRECTORY，即指定mv的目标目录，该选项适用于移动多个源文件到一个目录的情况，此时目标目录在前，源文件在后。
+     4．命令实例：
+        文件改名
+        mv test.log test1.txt
+        移动文件
+        mv test1.txt test3
+        将文件log1.txt log2.txt,log3.txt移动到目录test3中
+        mv log1.txt log2.txt log3.txt test3
+        mv -t /opt/soft/log.txt log2.txt log3.txt
+        将文件file1改名为file2，如果file2已经存在，则询问是否覆盖
+        mv -i log1.txt log2.txt
+        将文件file1改名为file2，即使file2存在，也是直接覆盖掉 
+        mv -f log1.txt log2.txt   
+        目录的移动
+        mv dir1 dir2
+        移动当前文件夹下的所有文件到上一级目录
+        mv * ../
+        把当前目录的一个子目录里的文件移动到另一个子目录里
+        mv test3/*.txt test5
+        文件被覆盖前做简单备份，前面加参数-b
+        mv log1.txt -b log2.txt
+## 8、cp 命令
+    1、                        
