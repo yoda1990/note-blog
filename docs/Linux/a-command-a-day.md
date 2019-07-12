@@ -133,4 +133,35 @@
         文件被覆盖前做简单备份，前面加参数-b
         mv log1.txt -b log2.txt
 ## 8、cp 命令
-    1、                        
+    1、命令格式：
+       cp [选项]... [T] 源 目的
+       cp [选项]... 源...  目录
+       cp [选项]... -t 目录 源...
+    2、命令功能：
+       将源文件复制至目标文件，或将多个源文件复制至目标目录。
+    3、命令参数：
+       -a,--archive 等于 -dR --preserve=all --backup[=CONTROL 为每个已存在的目标文件创建备份
+       -b 类似 --backup 但不接收参数
+       --copy-contents 在递归处理是复制特殊文件内容
+       -d 等于 --no-dereference --preserve=links
+       -f,--force 如果目标文件无法打开则将其移除并重试（当 -n 选项存在时则不需要再选此项）
+       -i , --interactive 覆盖前询问（使前面的 -n 选项失效）
+       -H                跟随源文件中的命令行符号链接
+       -l, --link            链接文件而不复制
+       -L, --dereference   总是跟随符号链接
+       -n, --no-clobber   不要覆盖已存在的文件(使前面的 -i 选项失效)
+       -P, --no-dereference   不跟随源文件中的符号链接
+       -p                等于--preserve=模式,所有权,时间戳
+       --preserve[=属性列表   保持指定的属性(默认：模式,所有权,时间戳)，如果可能保持附加属性：环境、链接、xattr 等
+       -R, -r, --recursive  复制目录及目录内的所有项目 
+    4、命令实例：
+       复制单个文件到目标目录，文件在目标文件中不存在
+       cp log.log test5
+       目标文件存在时，会询问是否覆盖
+       cp log.log test5
+       复制整个目录
+       cp -a test3 test5 
+       复制的 log.log 建立一个连结档 log_link.log 
+       cp -s log.log log_link.log
+       
+                                    
