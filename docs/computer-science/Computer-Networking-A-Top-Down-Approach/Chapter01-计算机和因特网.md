@@ -18,7 +18,7 @@
      2、什么是协议
         1、类比人类活动的协议
            人类的活动无时无刻不在执行协议。考虑当你想要向某人询问时间将要怎样做。如下图所示
-![images](images/network 1-1.png)           
+![images](https://raw.githubusercontent.com/You-Hmily/note-blog/master/docs/computer-science/Computer-Networking-A-Top-Down-Approach/images/network%201-1.png)           
         
         2、网络协议
            在因特网中，凡是涉及两个或者多个通信实体的所有活动都受协议的制约。一个协议定义了两个或多个通信实体之间的报文格式和次序，以及报文发送和/或接收一条报文或其他时间所采取的动作。因特网广泛的使用了协议。不同的协议用于完成不同的通信任务。
@@ -85,7 +85,7 @@
         协议分层：
         为了给网络协议的设计提供一个结构，网络设计者以分层（layer）的方式组织协议以及实现这些协议的网络硬件和软件。
         每层都有不同的协议，各层所有协议被称为协议栈（protocol stack）。因特网的协议栈由5个层次组成：物理层、链路层、网络层、运输层和应用层。如下图所示：
-![images](images/network%201-2.png)        
+![images](https://raw.githubusercontent.com/You-Hmily/note-blog/master/docs/computer-science/Computer-Networking-A-Top-Down-Approach/images/network%201-2.png)        
         
         (1)、应用层
              应用层是网络应用程序及它们的应用层协议存留的地方。因特网的应用层包括许多协议，例如HTTP，SMTP,FTP。
@@ -108,7 +108,7 @@
         表示层：作用是使通信的应用程序能够解释交换数据的含义。
         会话层：提供了数据交换定界和同步功能，包括建立检查点和恢复方案的方法。     
      2、封装
-![images](images/network%201-3.png)
+![images](https://raw.githubusercontent.com/You-Hmily/note-blog/master/docs/computer-science/Computer-Networking-A-Top-Down-Approach/images/network%201-3.png)
      
      上图说明了一个重要的概念：封装(encapsulation)。
      在发送主机端，一个应用层报文(application-layer-message)被传送给传输层。
