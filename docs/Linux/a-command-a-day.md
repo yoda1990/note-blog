@@ -184,4 +184,32 @@
        设定文件的时间戳
        touch -t 201211122234.50 log.log
 ## 10、cat 命令      
-                                    
+    1、命令格式：
+       cat [选项] [文件]...
+    2、命令功能：
+       显示整个文件：cat fileName
+       从键盘创建一个文件：cat > filename 只能创建新文件，不能编辑已有文件
+       将几个文件合并为一个文件：cat file1 file2 > file
+    3、命令参数：
+       -A,--show-all 等价于 -vET
+       -b,--number-nonblank 对非空输出行编号
+       -e 等价于 -vE
+       -E，--show-ends 每行结束处显示 $
+       -n,--number 对输出的所有行编号，由1开始对所有输出的行数编号
+       -s,--squeeze-blank 有连续两行以上的空白行，就代换为一行的空白行
+       -t 与 -vT等价
+       -T, --show-tabs 将跳格字符显示为 ^T
+       -u 被忽略
+       -v，--show-nonprinting 使用^和M- 引用，除了LFD和TAB 之外
+    4、使用实例：
+       把 log2012.log 的文件内容加上行号后输入 log2013.log 这个文件里
+       cat -n log2012.log log2013.log
+       
+       把 log2012.log 和 log2013.log 的文件内容加上行号（空白行不加）之后将内容附加到 log.log 里
+       cat -b log2012.log log2013.log log.log
+       
+       把 log2012.log 的文件内容加上行号后输入 log.log 这个文件里
+       cat -n log2012.log > log.log
+       cat -n log.log
+       
+                                              
