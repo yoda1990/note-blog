@@ -354,7 +354,184 @@
         
         从第5行开始显示文件
         tail -n +5 log2014.log
-## 二、文件查找命令：    
+## 二、文件查找命令：
+## 16、 which 命令
+     1、命令格式：
+        which 可执行文件名称
+     2、命令功能：
+        which指令会在PATH变量指定的路径中，搜索某个系统命令的位置，并且返回第一个搜索结果。
+     3、命令参数：
+        -n 　指定文件名长度，指定的长度必须大于或等于所有文件中最长的文件名。
+        -p 　与-n参数相同，但此处的包括了文件的路径。
+        -w 　指定输出时栏位的宽度。
+        -V 　显示版本信息
+     4、命令实例：
+        查找文件、显示命令路径
+        which lsmod   
+        
+        用 which 去找出 which
+        which which
+        
+        找出 cd 这个命令
+        which cd
+## 17、 whereis 命令
+     1、命令格式：
+        whereis [-bmsu] [BMS 目录名 -f ] 文件名
+     2、命令功能：
+        whereis命令是定位可执行文件、源代码文件、帮助文件在文件系统中的位置。这些文件的属性应属于原始代码，二进制文件，或是帮助文件。whereis 程序还具有搜索源代码、指定备用搜索路径和搜索不寻常项的能力。
+     3、命令参数：
+        -b   定位可执行文件。
+        -m   定位帮助文件。
+        -s   定位源代码文件。
+        -u   搜索默认路径下除可执行文件、源代码文件、帮助文件以外的其它文件。
+        -B   指定搜索可执行文件的路径。
+        -M   指定搜索帮助文件的路径。
+        -S   指定搜索源代码文件的路径。
+     4、命令示例：
+        将和**文件相关的文件都查找出来
+        whereis svn
+        
+        只将二进制文件 查找出来 
+        whereis -b svn
+        
+## 18、 locate 命令
+     1、命令格式：
+        locate [选择参数] [样式]
+     2、命令功能：
+        locate命令可以在搜寻数据库时快速找到档案，数据库由updatedb程序来更新，updatedb是由cron daemon周期性建立的，locate命令在搜寻数据库时比由整个由硬盘资料来搜寻资料来得快，但较差劲的是locate所找到的档案若是最近才建立或 刚更名的，可能会找不到，在内定值中，updatedb每天会跑一次，可以由修改crontab来更新设定值。(etc/crontab)
+        locate指定用在搜寻符合条件的档案，它会去储存档案与目录名称的数据库内，寻找合乎范本样式条件的档案或目录录，可以使用特殊字元（如”*” 或”?”等）来指定范本样式，如指定范本为kcpa*ner, locate会找出所有起始字串为kcpa且结尾为ner的档案或目录，如名称为kcpartner若目录录名称为kcpa_ner则会列出该目录下包括 子目录在内的所有档案。
+        locate指令和find找寻档案的功能类似，但locate是透过update程序将硬盘中的所有档案和目录资料先建立一个索引数据库，在 执行loacte时直接找该索引，查询速度会较快，索引数据库一般是由操作系统管理，但也可以直接下达update强迫系统立即修改索引数据库。
+     3、命令参数：
+        -e   将排除在寻找的范围之外。
+        -1  如果 是 1．则启动安全模式。在安全模式下，使用者不会看到权限无法看到	的档案。这会始速度减慢，因为 locate 必须至实际的档案系统中取得档案的	权限资料。
+        -f   将特定的档案系统排除在外，例如我们没有到理要把 proc 档案系统中的档案	放在资料库中。
+        -q  安静模式，不会显示任何错误讯息。
+        -n 至多显示 n个输出。
+        -r 使用正规运算式 做寻找的条件。
+        -o 指定资料库存的名称。
+        -d 指定资料库的路径
+        -h 显示辅助讯息
+        -V 显示程式的版本讯息
+     4、命令示例：
+        查找和pwd相关的所有文件
+        locate pwd
+        
+        搜索etc目录下所有以sh开头的文件
+        locate /etc/sh
+        
+        搜索etc目录下，所有以m开头的文件
+        locate /etc/m
+        
+## 19、 find 命令
+     1、命令格式：
+        find pathname -options [-print -exec -ok ...]
+     2、命令功能：
+        用于在文件树中查找文件，并作出相应的处理
+     3、命令参数：
+        -name   按照文件名查找文件。
+        -perm   按照文件权限来查找文件。
+        -prune  使用这一选项可以使find命令不在当前指定的目录中查找，如果同时使用-depth选项，那么-prune将被find命令忽略。
+        -user   按照文件属主来查找文件。
+        -group  按照文件所属的组来查找文件。
+        -mtime -n +n  按照文件的更改时间来查找文件， - n表示文件更改时间距现在n天以内，+ n表示文件更改时间距现在n天以前。find命令还有-atime和-ctime 选项，但它们都和-m time选项。
+        -nogroup  查找无有效所属组的文件，即该文件所属的组在/etc/groups中不存在。
+        -nouser   查找无有效属主的文件，即该文件的属主在/etc/passwd中不存在。
+        -newer file1 ! file2  查找更改时间比文件file1新但比文件file2旧的文件。
+        -type  查找某一类型的文件，诸如：
+        b - 块设备文件。
+        d - 目录。
+        c - 字符设备文件。
+        p - 管道文件。
+        l - 符号链接文件。
+        f - 普通文件。
+        -size n：[c] 查找文件长度为n块的文件，带有c时表示文件长度以字节计。-depth：在查找文件时，首先查找当前目录中的文件，然后再在其子目录中查找。
+        -fstype：查找位于某一类型文件系统中的文件，这些文件系统类型通常可以在配置文件/etc/fstab中找到，该配置文件中包含了本系统中有关文件系统的信息。
+        -mount：在查找文件时不跨越文件系统mount点。
+        -follow：如果find命令遇到符号链接文件，就跟踪至链接所指向的文件。
+        -cpio：对匹配的文件使用cpio命令，将这些文件备份到磁带设备中。
+        另外,下面三个的区别:
+        -amin n   查找系统中最后N分钟访问的文件
+        -atime n  查找系统中最后n*24小时访问的文件
+        -cmin n   查找系统中最后N分钟被改变文件状态的文件
+        -ctime n  查找系统中最后n*24小时被改变文件状态的文件
+        -mmin n   查找系统中最后N分钟被改变文件数据的文件
+        -mtime n  查找系统中最后n*24小时被改变文件数据的文件
+     4、命令示例：
+        查找指定时间内修改过的文件 
+        find -atime -2
+         
+        根据关键字查找 
+        find -name "*.log"
+        
+        按照目录或文件的权限来查找文件
+        find /opt/soft/test -perm 777
+        
+        按类型查找 
+        find -type f -name "*.log"
+        
+        查找当前所有目录并排序
+        find -type d|sort
+       
+        find命令之exec
+        exec解释：
+        -exec  参数后面跟的是command命令，它的终止是以;为结束标志的，所以这句命令后面的分号是不可缺少的，考虑到各个系统中分号会有不同的意义，所以前面加反斜杠。
+        {}   花括号代表前面find查找出来的文件名。
+        使用find时，只要把想要的操作写在一个文件里，就可以用exec来配合find查找，很方便的。在有些操作系统中只允许-exec选项执行诸如l s或ls -l这样的命令。大多数用户使用这一选项是为了查找旧文件并删除它们。建议在真正执行rm命令删除文件之前，最好先用ls命令看一下，确认它们是所要删除的文件。 exec选项后面跟随着所要执行的命令或脚本，然后是一对儿{ }，一个空格和一个\，最后是一个分号。为了使用exec选项，必须要同时使用print选项。如果验证一下find命令，会发现该命令只输出从当前路径起的相对路径及文件名。       
+        
+        ls -l命令放在find命令的-exec选项中 
+        find -type f -exec ls -l {}\;
+        
+        在目录中查找更改时间在n日以前的文件并删除它们
+        find . -type f -mtime +14 -exec rm {} \; 
+        
+        在目录中查找更改时间在n日以前的文件并删除它们，在删除之前先给出提示
+        find . -name "*.log" -mtime +5 -ok rm {} \;
+        
+        -exec中使用grep命令
+        find /etc -name "passwd*" -exec grep "root" {} \;
+        
+        查找文件移动到指定目录  
+        find . -name "*.log" -exec mv {} .. \;
+        
+        用exec选项执行cp命令  
+        find . -name "*.log" -exec cp {} test3 \;
+        
+        find命令之xargs
+        查找系统中的每一个普通文件，然后使用xargs命令来测试它们分别属于哪类文件 
+        find . -type f -print | xargs file
+          
+        在整个系统中查找内存信息转储文件(core dump) ，然后把结果保存到/tmp/core.log 文件中       
+        find / -name "core" -print | xargs echo "" >/tmp/core.log
+        
+        在当前目录下查找所有用户具有读、写和执行权限的文件，并收回相应的写权限
+        find . -perm -7 -print | xargs chmod o-w
+        
+        用grep命令在所有的普通文件中搜索hostname这个词
+        find . -type f -print | xargs grep "hostname"
+        
+        用grep命令在当前目录下的所有普通文件中搜索hostnames这个词
+        find . -name \* -type f -print | xargs grep "hostnames"
+        
+        使用xargs执行mv 
+        find . -name "*.log" | xargs -i mv {} test4
+        
+        find后执行xargs提示xargs: argument line too long解决方法：
+        find . -type f -atime +0 -print0 | xargs -0 -l1 -t rm -f
+        
+        使用-i参数默认的前面输出用{}代替，-I参数可以指定其他代替字符，如例子中的[] 
+        
+        xargs的-p参数的使用 
+        find . -name "*.log" | xargs -p -i mv {} ..
+        
+## 三、文件和目录属性         
+        
+        
+     
+     
+        
+        
+        
+         
         
           
      
