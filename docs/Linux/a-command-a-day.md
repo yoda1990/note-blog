@@ -524,13 +524,153 @@
         find . -name "*.log" | xargs -p -i mv {} ..
         
 ## 三、文件和目录属性         
+## 28、tar 命令
+     1、命令格式：
+        tar [必要参数][选择参数][文件]
+     2、命令功能：
+        用来压缩和解压文件。tar本身不具有压缩功能。他是调用压缩功能实现的 
+     3、命令参数：
+        必要参数有如下：
+        -A 新增压缩文件到已存在的压缩
+        -B 设置区块大小
+        -c 建立新的压缩文件
+        -d 记录文件的差别
+        -r 添加文件到已经压缩的文件
+        -u 添加改变了和现有的文件到已经存在的压缩文件
+        -x 从压缩的文件中提取文件
+        -t 显示压缩文件的内容
+        -z 支持gzip解压文件
+        -j 支持bzip2解压文件
+        -Z 支持compress解压文件
+        -v 显示操作过程
+        -l 文件系统边界设置
+        -k 保留原有文件不覆盖
+        -m 保留文件不被覆盖
+        -W 确认压缩文件的正确性
+        可选参数如下：
+        -b 设置区块数目
+        -C 切换到指定目录
+        -f 指定压缩文件
+        --help 显示帮助信息
+        --version 显示版本信息
+     4、命令示例：
+        解包：tar xvf FileName.tar
+        打包：tar cvf FileName.tar DirName
+        （注：tar是打包，不是压缩！）
         
+        将文件全部打包成tar包
+        tar -cvf log.tar log2012.log  仅打包，不压缩！ 
+        tar -zcvf log.tar.gz log2012.log  打包后，以 gzip 压缩 
+        tar -jcvf log.tar.bz2 log2012.log  打包后，以 bzip2 压缩 
+         
+        在参数 f 之后的文件档名是自己取的，我们习惯上都用 .tar 来作为辨识。 如果加 z 参数，则以 .tar.gz 或 .tgz 来代表 gzip 压缩过的 tar包； 如果加 j 参数，则以 .tar.bz2 来作为tar包名。
         
-     
-     
+        查阅上述 tar包内有哪些文件
+        tar -ztvf log.tar.gz        
+        由于我们使用 gzip 压缩的log.tar.gz，所以要查阅log.tar.gz包内的文件时，就得要加上 z 这个参数了。
         
+        将tar 包解压缩
+        tar -zxvf /opt/soft/test/log.tar.gz
         
+        只将 /tar 内的 部分文件解压出来 
+        tar -zxvf /opt/soft/test/log30.tar.gz log2013.log
         
+        文件备份下来，并且保存其权限
+        tar -zcvpf log31.tar.gz log2014.log log2015.log log2016.log 
+        
+        在文件夹当中，比某个日期新的文件才备份
+        tar -N "2012/11/13" -zcvf log17.tar.gz test
+        
+        备份文件夹内容是排除部分文件 
+        tar --exclude scf/service -zcvf scf.tar.gz scf/*
+## 29、 gzip命令
+     1、命令格式：
+        gzip[参数][文件或者目录]
+     2、命令功能：
+        gzip是个使用广泛的压缩程序，文件经它压缩过后，其名称后面会多出".gz"的扩展名。
+     3、命令参数：
+        -a或--ascii 　使用ASCII文字模式。 
+        -c或--stdout或--to-stdout 　把压缩后的文件输出到标准输出设备，不去更动原始文件。 
+        -d或--decompress或----uncompress 　解开压缩文件。 
+        -f或--force 　强行压缩文件。不理会文件名称或硬连接是否存在以及该文件是否为符号连接。 
+        -h或--help 　在线帮助。 
+        -l或--list 　列出压缩文件的相关信息。 
+        -L或--license 　显示版本与版权信息。 
+        -n或--no-name 　压缩文件时，不保存原来的文件名称及时间戳记。 
+        -N或--name 　压缩文件时，保存原来的文件名称及时间戳记。 
+        -q或--quiet 　不显示警告信息。 
+        -r或--recursive 　递归处理，将指定目录下的所有文件及子目录一并处理。 
+        -S<压缩字尾字符串>或----suffix<压缩字尾字符串> 　更改压缩字尾字符串。 
+        -t或--test 　测试压缩文件是否正确无误。 
+        -v或--verbose 　显示指令执行过程。 
+        -V或--version 　显示版本信息。 
+        -num 用指定的数字num调整压缩的速度，-1或--fast表示最快压缩方法（低压缩比），-9或--best表示最慢压缩方法（高压缩比）。系统缺省值为6。 
+     4、命令示例：
+        把test6目录下的每个文件压缩成.gz文件
+        gzip * 
+            
+        把例1中每个压缩的文件解压，并列出详细的信息
+        gzip -dv *
+        
+        详细显示例1中每个压缩的文件的信息，并不解压
+        gzip -l *
+        
+        压缩一个tar备份文件，此时压缩文件的扩展名为.tar.gz
+        gzip -r log.tar
+        
+        递归的压缩目录
+        gzip -rv test6
+        
+        递归地解压目录
+        gzip -dr test6
+        
+## 30、 chomd 命令
+    1、命令格式：
+       chomd [-cfvR][--help][--version]mode file
+    2、命令功能：
+       用于改变文件或目录的访问权限，用它控制文件或目录的访问权限。
+    3、命令参数：
+       必要参数：
+       -c 当发生改变时，报告处理信息
+       -f 错误信息不输出
+       -R 处理指定目录以及其子目录下的所有文件
+       -v 运行时显示详细处理信息
+    4、命令示例：
+       增加文件所有用户组可执行权限
+       chmod a+x log2012.log
+       
+       同时修改不同用户权限
+       chmod ug+w,o-x log2012.log
+       
+       删除文件权限
+       chmod a-x log2012.log
+       
+       使用“=”设置权限 
+       chmod u=x log2012.log
+       
+       对一个目录及其子目录所有文件添加权限 
+       chmod -R u+x test4
+       
+       其他：
+           1）. 命令：chmod 751 file   
+           说明：给file的属主分配读、写、执行(7)的权限，给file的所在组分配读、执行(5)的权限，给其他用户分配执行(1)的权限
+           2）. 命令：chmod u=rwx,g=rx,o=x file 
+           说明：上例的另一种形式
+           3）. 命令：chmod =r file 
+           说明：为所有用户分配读权限
+           3）. 命令：chmod 444 file 
+           说明： 同上例
+           4）. 命令：chmod a-wx,a+r   file
+           说明：同上例
+## 31、chgrp 命令 
+     1、命令格式：
+     2、命令功能：
+     3、命令参数：
+     4、命令示例：
+              
+      
+              
+   
          
         
           
