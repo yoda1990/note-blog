@@ -1146,10 +1146,187 @@
         
 ## 43、traceroute 命令 
     1、命令格式：
+       traceroute[参数][主机]
+    2、命令功能：
+       traceroute指令让你追踪网络数据包的路由途径，预设数据包大小是40Bytes，用户可另行设置。
+    3、命令参数：
+       -d 使用Socket层级的排错功能。
+       -f 设置第一个检测数据包的存活数值TTL的大小。
+       -F 设置勿离断位。
+       -g 设置来源路由网关，最多可设置8个。
+       -i 使用指定的网络界面送出数据包。
+       -I 使用ICMP回应取代UDP资料信息。
+       -m 设置检测数据包的最大存活数值TTL的大小。
+       -n 直接使用IP地址而非主机名称。
+       -p 设置UDP传输协议的通信端口。
+       -r 忽略普通的Routing Table，直接将数据包送到远端主机上。
+       -s 设置本地主机送出数据包的IP地址。
+       -t 设置检测数据包的TOS数值。
+       -v 详细显示指令的执行过程。
+       -w 设置等待远端主机回报的时间。
+       -x 开启或关闭数据包的正确性检验。
+    4、命令示例：
+       traceroute 用法简单、最常用的用法
+       traceroute www.baidu.com 
+       
+       跳数设置
+       traceroute -m 10 www.baidu.com
+       
+       显示IP地址，不查主机名
+       traceroute -n www.baidu.com
+       
+       探测包使用的基本UDP端口设置6888
+       traceroute -p 6888 www.baidu.com
+       
+       把探测包的个数设置为值4
+       traceroute -q 4 www.baidu.com
+       
+       绕过正常的路由表，直接发送到网络相连的主机
+       traceroute -r www.baidu.com
+       
+       把对外发探测包的等待响应时间设置为3秒
+       traceroute -w 3 www.baidu.com
+       
+## 44、 netstat 命令
+     1、命令参数：
+        netstat [-acCeFghilMnNoprstuvVwx][-A<网络类型>][--ip]
+     2、命令功能：
+        netstat用于显示与IP、TCP、UDP和ICMP协议相关的统计数据，一般用于检验本机各端口的网络连接情况。
+     3、命令参数：
+        -a或–all 显示所有连线中的Socket。
+        -A<网络类型>或–<网络类型> 列出该网络类型连线中的相关地址。
+        -c或–continuous 持续列出网络状态。
+        -C或–cache 显示路由器配置的快取信息。
+        -e或–extend 显示网络其他相关信息。
+        -F或–fib 显示FIB。
+        -g或–groups 显示多重广播功能群组组员名单。
+        -h或–help 在线帮助。
+        -i或–interfaces 显示网络界面信息表单。
+        -l或–listening 显示监控中的服务器的Socket。
+        -M或–masquerade 显示伪装的网络连线。
+        -n或–numeric 直接使用IP地址，而不通过域名服务器。
+        -N或–netlink或–symbolic 显示网络硬件外围设备的符号连接名称。
+        -o或–timers 显示计时器。
+        -p或–programs 显示正在使用Socket的程序识别码和程序名称。
+        -r或–route 显示Routing Table。
+        -s或–statistice 显示网络工作信息统计表。
+        -t或–tcp 显示TCP传输协议的连线状况。
+        -u或–udp 显示UDP传输协议的连线状况。
+        -v或–verbose 显示指令执行过程。
+        -V或–version 显示版本信息。
+        -w或–raw 显示RAW传输协议的连线状况。
+        -x或–unix 此参数的效果和指定”-A unix”参数相同。
+        –ip或–inet 此参数的效果和指定”-A inet”参数相同。
+     4、命令示例：
+        无参数使用
+        netstat
+        
+        列出所有端口
+        netstat -a
+        
+        显示当前UDP连接状况
+        netstat -nu
+        
+        显示UDP端口号的使用情况
+        netstat -apu
+        
+        显示网卡列表
+        netstat -i
+        
+        显示组播组的关系
+        netstat -g
+        
+        显示网络统计信息
+        netstat -s
+        
+        显示监听的套接口
+        netstat -l
+        
+        显示所有已建立的有效连接
+        netstat -n
+        
+        显示关于以太网的统计数据
+        netstat -e
+        
+        显示关于路由表的信息
+        netstat -r
+        
+        列出所有 tcp 端口
+        netstat -at
+        
+        找出程序运行的端口
+        netstat -ap | grep ssh
+        
+        在 netstat 输出中显示 PID 和进程名称
+        netstat -pt
+        
+        找出运行在指定端口的进程
+        netstat -anpt | grep ':16064'
+## 45、 ss命令
+     1、命令格式：
+        ss [参数]
+        ss [参数] [过滤]
+     2、命令功能：
+        ss(Socket Statistics的缩写)命令可以用来获取 socket统计信息
+     3、命令参数：
+        -h, --help	帮助信息
+        -V, --version	程序版本信息
+        -n, --numeric	不解析服务名称
+        -r, --resolve        解析主机名
+        -a, --all	显示所有套接字（sockets）
+        -l, --listening	显示监听状态的套接字（sockets）
+        -o, --options        显示计时器信息
+        -e, --extended       显示详细的套接字（sockets）信息
+        -m, --memory         显示套接字（socket）的内存使用情况
+        -p, --processes	显示使用套接字（socket）的进程
+        -i, --info	显示 TCP内部信息
+        -s, --summary	显示套接字（socket）使用概况
+        -4, --ipv4           仅显示IPv4的套接字（sockets）
+        -6, --ipv6           仅显示IPv6的套接字（sockets）
+        -0, --packet	        显示 PACKET 套接字（socket）
+        -t, --tcp	仅显示 TCP套接字（sockets）
+        -u, --udp	仅显示 UCP套接字（sockets）
+        -d, --dccp	仅显示 DCCP套接字（sockets）
+        -w, --raw	仅显示 RAW套接字（sockets）
+        -x, --unix	仅显示 Unix套接字（sockets）
+        -f, --family=FAMILY  显示 FAMILY类型的套接字（sockets），FAMILY可选，支持  unix, inet, inet6, link, netlink
+        -A, --query=QUERY, --socket=QUERY
+              QUERY := {all|inet|tcp|udp|raw|unix|packet|netlink}[,QUERY]
+        -D, --diag=FILE     将原始TCP套接字（sockets）信息转储到文件
+         -F, --filter=FILE   从文件中都去过滤器信息
+               FILTER := [ state TCP-STATE ] [ EXPRESSION ]
+     4、命令示例：
+        显示TCP连接
+        ss -t -a
+        
+        显示 Sockets 摘要
+        ss -s
+        
+        查看进程使用的socket
+        ss -pl
+        
+        找出打开套接字/端口应用程序
+        ss -lp | grep 3306
+        
+        显示所有UDP Sockets
+        ss -u -a
+        
+        显示所有状态为established的SMTP连接
+        ss -o state established '( dport = :smtp or sport = :smtp )' 
+        
+        显示所有状态为Established的HTTP连接
+        ss -o state established '( dport = :http or sport = :http )' 
+        
+        列举出处于 FIN-WAIT-1状态的源端口为 80或者 443，目标网络为 193.233.7/24所有 tcp套接字
+        ss -o state fin-wait-1 '( sport = :http or sport = :https )' dst 193.233.7/24
+        
+## 46、 telnet 命令
+    1、命令格式：
     2、命令功能：
     3、命令参数：
     4、命令示例：
-       
+        
+               
              
        
        
