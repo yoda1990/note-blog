@@ -1385,6 +1385,9 @@
        从远程系统复制目录：         
        rcp –r remote_hostname:remote_dir local_dir Enter
        
+   ## 48、 scp 命令
+       1、   
+       
         
        
                 
