@@ -181,3 +181,38 @@
     git status --ignored
 
 &emsp;&emsp;查看工作区和暂存区文件状态，包括被忽略的文件
+
+## 操作分支
+### 1、 git branch
+&emsp;&emsp;查看、创建、删除分支
+    
+    git branch -a 
+
+&emsp;&emsp;查看本地版本库和远程版本库上的分支列表
+
+    git branch -r
+
+&emsp;&emsp;查看远程版本库上的分支列表，加上 -d 参数可以删除远程版本库上的分支    
+
+    git branch -D
+    
+&emsp;&emsp;分支未提交到本地版本库前强制删除分支    
+
+    git branch -vv 
+
+&emsp;&emsp;查看带有最后提交id、最近提交原因等信息的本地版本库分支列表
+
+### 2、git merge
+&emsp;&emsp; 将其它分支合并到当前分支
+
+    git merge --squash
+
+&emsp;&emsp;将待合并分支上的 commit 合并成一个新的 commit 放入当前分支，适用于待合并分支的提交记录不需要保留的情况    
+
+    git merge --no-ff
+
+&emsp;&emsp;默认情况下，Git 执行"快进式合并"（fast-farward merge），会直接将 Master 分支指向 Develop 分支，使用 --no-ff 参数后，会执行正常合并，在 Master 分支上生成一个新节点，保证版本演进更清晰。
+
+    git merge --no-edit
+
+&emsp;&emsp;在没有冲突的情况下合并，不想手动编辑提交原因，而是用 Git 自动生成的类似 Merge branch 'test'的文字直接提交
