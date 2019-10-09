@@ -63,5 +63,40 @@
 
 ### 3.2、理解spring-boot-starter-parent 与 spring-boot-dependencies
 
+    spring-boot-dependencies是spring-boot-starter-parent 的 parent。
+    spring-boot-dependencies 可以直接作为parent。
+    
+    spring-boot-starter-web 和 spring-boot-test 均定义在 spring-boot-dependencies 的 POM中。
+    
+    调整 打包 插件
+    
+    <build>
+            <plugins>
+                <!-- 保持 与 spring-boot-dependencies 一致 -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <version>3.1.0</version>
+                </plugin>
+    
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>2.0.2.RELEASE</version>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>repackage</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </build>
 
+
+## 4、理解嵌入式WEB容器 
+
+### 4.1、嵌入式Servlet Web 容器         
+    
 
