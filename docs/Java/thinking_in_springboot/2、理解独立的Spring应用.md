@@ -97,6 +97,173 @@
 
 ## 4、理解嵌入式WEB容器 
 
-### 4.1、嵌入式Servlet Web 容器         
+### 4.1、嵌入式Servlet Web 容器 
     
+     1、tomcat 作为 Web 容器 
+      <!--web 里面内嵌入了Tomcat web 容器 -->
+      <dependency>
+           <groupId>org.springframework.boot</groupId>
+           <artifactId>spring-boot-starter-web</artifactId>
+           <version>2.0.2.RELEASE</version>
+      </dependency>
+      
+      2、Jetty作为 Web容器 
+       <!--web 里面内嵌入了Tomcat web 容器 -->
+       <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>2.0.2.RELEASE</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-tomcat</artifactId>
+                </exclusion>
+             </exclusions>
+       </dependency>
+       <!--使用 jetty 需要将 tomcat 容器 排除掉-->
+       <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jetty</artifactId>
+       </dependency>
+       <!-- spring-boot-loader 用于源码分析-->
+       <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-loader</artifactId>
+            <scope>provided</scope>
+       </dependency>
+       
+       3、Undertow 作为 Web 容器 
+       
+        <!--web 里面内嵌入了Tomcat web 容器 -->
+                  <dependency>
+                      <groupId>org.springframework.boot</groupId>
+                      <artifactId>spring-boot-starter-web</artifactId>
+                      <version>2.0.2.RELEASE</version>
+                      <exclusions>
+                          <exclusion>
+                              <groupId>org.springframework.boot</groupId>
+                              <artifactId>spring-boot-starter-tomcat</artifactId>
+                          </exclusion>
+                      </exclusions>
+                  </dependency>
+                  <!--使用 jetty 需要将 tomcat 容器 排除掉-->
+       <!--           <dependency>-->
+       <!--               <groupId>org.springframework.boot</groupId>-->
+       <!--               <artifactId>spring-boot-starter-jetty</artifactId>-->
+       <!--           </dependency>-->
+       
+                  <!--Use Undertow instead -->
+                  <dependency>
+                      <groupId>org.springframework.boot</groupId>
+                      <artifactId>spring-boot-starter-undertow</artifactId>
+                      <version>2.0.2.RELEASE</version>
+                  </dependency>
+       
+                  <!-- spring-boot-loader 用于源码分析-->
+                  <dependency>
+                      <groupId>org.springframework.boot</groupId>
+                      <artifactId>spring-boot-loader</artifactId>
+                      <scope>provided</scope>
+                  </dependency>
+               
+### 4.2、嵌入式Reactive Web 容器     
 
+    1、UndertowServletWebServer 作为 Reactive Web 容器
+    
+    <!--web 里面内嵌入了Tomcat web 容器 -->
+               <dependency>
+                   <groupId>org.springframework.boot</groupId>
+                   <artifactId>spring-boot-starter-web</artifactId>
+                   <version>2.0.2.RELEASE</version>
+                   <exclusions>
+                       <exclusion>
+                           <groupId>org.springframework.boot</groupId>
+                           <artifactId>spring-boot-starter-tomcat</artifactId>
+                       </exclusion>
+                   </exclusions>
+               </dependency>
+               <!--使用 jetty 需要将 tomcat 容器 排除掉-->
+    <!--           <dependency>-->
+    <!--               <groupId>org.springframework.boot</groupId>-->
+    <!--               <artifactId>spring-boot-starter-jetty</artifactId>-->
+    <!--           </dependency>-->
+    
+               <!--Use Undertow instead -->
+               <dependency>
+                   <groupId>org.springframework.boot</groupId>
+                   <artifactId>spring-boot-starter-undertow</artifactId>
+                   <version>2.0.2.RELEASE</version>
+               </dependency>
+    
+               <dependency>
+                   <groupId>org.springframework.boot</groupId>
+                   <artifactId>spring-boot-starter-webflux</artifactId>
+                   <version>2.0.2.RELEASE</version>
+               </dependency>
+    
+               <!-- spring-boot-loader 用于源码分析-->
+               <dependency>
+                   <groupId>org.springframework.boot</groupId>
+                   <artifactId>spring-boot-loader</artifactId>
+                   <scope>provided</scope>
+               </dependency> 
+    
+    2、UndertowWebServer作为嵌入式ReactiveWeb 容器
+    
+    <!--web 里面内嵌入了Tomcat web 容器 -->
+    <!--           <dependency>-->
+    <!--               <groupId>org.springframework.boot</groupId>-->
+    <!--               <artifactId>spring-boot-starter-web</artifactId>-->
+    <!--               <version>2.0.2.RELEASE</version>-->
+    <!--               <exclusions>-->
+    <!--                   <exclusion>-->
+    <!--                       <groupId>org.springframework.boot</groupId>-->
+    <!--                       <artifactId>spring-boot-starter-tomcat</artifactId>-->
+    <!--                   </exclusion>-->
+    <!--               </exclusions>-->
+    <!--           </dependency>-->
+               <!--使用 jetty 需要将 tomcat 容器 排除掉-->
+    <!--           <dependency>-->
+    <!--               <groupId>org.springframework.boot</groupId>-->
+    <!--               <artifactId>spring-boot-starter-jetty</artifactId>-->
+    <!--           </dependency>-->
+    
+               <!--Use Undertow instead -->
+               <dependency>
+                   <groupId>org.springframework.boot</groupId>
+                   <artifactId>spring-boot-starter-undertow</artifactId>
+                   <version>2.0.2.RELEASE</version>
+               </dependency>
+    
+               <dependency>
+                   <groupId>org.springframework.boot</groupId>
+                   <artifactId>spring-boot-starter-webflux</artifactId>
+                   <version>2.0.2.RELEASE</version>
+               </dependency>
+    
+               <!-- spring-boot-loader 用于源码分析-->
+               <dependency>
+                   <groupId>org.springframework.boot</groupId>
+                   <artifactId>spring-boot-loader</artifactId>
+                   <scope>provided</scope>
+               </dependency>
+     
+     3、Jetty 作为 Reactive Web 容器
+     
+     注释掉其他容器 只留jetty 
+     <dependency>
+         <groupId>org.springframework.boot</groupId>
+         <artifactId>spring-boot-starter-jetty</artifactId>
+     </dependency>
+     
+     4、Tomcat 作为 Reactive Web 容器
+     
+     注释掉其他容器 只留tomcat 
+     <dependency>
+         <groupId>org.springframework.boot</groupId>
+         <artifactId>spring-boot-starter-tomcat</artifactId>
+     </dependency>
+     
+## 5、理解自动装配 
+
+         
