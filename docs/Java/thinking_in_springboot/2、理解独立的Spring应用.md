@@ -265,5 +265,21 @@
      </dependency>
      
 ## 5、理解自动装配 
+### 5.1、理解@SpringBootApplication 注解语义
 
+    SpringBootApplication 等价于 @EnableAutoConfiguration、@ComponentScan 和 @SpringBootConfiguration。
+    
+### 5.2、@SpringBootApplication 属性别名
+
+    @SpringBootApplication 是一个聚合注解，包含：@ComponentScan、@Configuration 和 @EnableAutoConfiguration 的核心特性。
+        
+### 5.3、@SpringBootApplication标注非引导类
+   
+    @SpringBootApplication 并非限定标注于引导类。可以用于配置类等等
+    
+### 5.4、 @EnableAutoConfiguration 激活自动装配
+
+### 5.5、
+
+### 5.7、创建自动配置类         
          
