@@ -23,4 +23,5 @@
 ![images](images/hadoop 1-1.png)    
      
     3、Hadoop 安装
+       百度搜索安装过程即可。
             
